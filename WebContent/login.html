@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>表单验证</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device.width,initial-scale=1">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<link type="text/css" rel="stylesheet"
+	href="bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript"
+	src="js/validator/additional-methods.min.js"></script>
+<script type="text/javascript" src="js/validator/jquery.metadata.js"></script>
+<script type="text/javascript" src="js/validator/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/validator/Message_zh_CN.js"></script>
+<script type="text/javascript" src="js/form.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<form action="" id="myform" method="post" class="form-horizontal">
+			<!-- 用户名 -->
+			<div class="form-group" id="member.midDiv">
+				<label class="col-md-1 control-label" for="member.mid">用户ID</label>
+				<div class="col-md-5">
+					<input type="text" name="member.mid" id="member.mid"
+						class="form-control input-sm" placeholder="请输入登录用户名" />
+				</div>
+
+				<div class="col-md-4" id="member.midMsg">*</div>
+			</div>
+
+			<!-- 验证码 -->
+			<div class="form-group" id="codeDiv">
+				<label class="col-md-2 control-label" for="code">验证码：</label>
+
+				<div class="col-md-5">
+					<div class="row">
+						<div class="col-md-8">
+							<input type="text" name="code" id="code"
+								class="form-control input-sm" placeholder="验证码" maxlength="4"
+								size="4">
+						</div>
+						<div class="col-md-4">
+							<img src="image.jsp" id="codeImg">
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4" id="codeMsg">*</div>
+			</div>
+
+			<div class="form-group" id="member.emailDiv">
+				<label class="col-md-2 control-label" for="member.email">邮箱：</label>
+
+				<div class="col-md-5">
+					<input type="text" name="member.email" id="member.email"
+						class="form-control input-sm" placeholder="请输入邮箱" />
+				</div>
+
+				<div class="col-md-4" id="member.emailMsg">*</div>
+			</div>
+
+			<div class="form-group" id="member.passwordDiv">
+				<label class="col-md-2 control-label" for="member.password">密码：</label>
+
+				<div class="col-md-5">
+					<input type="password" name="member.password" id="member.password"
+						class="form-control input-sm" placeholder="请输入密码" />
+				</div>
+
+				<div class="col-md-4" id="member.passwordMsg">*</div>
+			</div>
+
+			<div class="form-group" id="member.confDiv">
+				<label class="col-md-2 control-label" for="member.conf">确认密码：</label>
+
+				<div class="col-md-5">
+					<input type="password" name="member.conf" id="member.conf"
+						class="form-control input-sm" placeholder="请再次输入密码" />
+				</div>
+
+				<div class="col-md-4" id="member.confMsg">*</div>
+			</div>
+
+			<div class="form-group" id="member.sexDiv">
+				<label class="col-md-2 control-label" for="member.sex">性别：</label>
+
+				<div class="col-md-5">
+					<div class="radio-inline">
+						<input type="radio" name="member.sex" id="member.sex" value="男"
+							checked />男
+					</div>
+					<div class="radio-inline">
+						<input type="radio" name="member.sex" id="member.sex" value="女" />女
+					</div>
+				</div>
+
+				<div class="col-md-4" id="member.sexMsg">*</div>
+			</div>
+
+			<div class="form-group" id="member.instDiv">
+				<label class="col-md-2 control-label" for="member.inst">爱好：</label>
+				
+				<div class="col-md-5">
+					<div class="checkbox-inline">
+						<input type="checkbox" name="member.inst" id="member.inst" value="唱歌">唱歌
+					</div>
+					<div class="checkbox-inline">
+						<input type="checkbox" name="member.inst" id="member.inst" value="跳舞">跳舞
+					</div>
+					<div class="checkbox-inline">
+						<input type="checkbox" name="member.inst" id="member.inst" value="看书">看书
+					</div>
+					<div class="checkbox-inline">
+						<input type="checkbox" name="member.inst" id="member.inst" value="撸码">撸码
+					</div>
+				</div>
+				
+				<div class="col-md-4" id="member.instMsg">*</div>
+			</div>
+
+			<div class="form-group" id="member.cityDiv">
+				<lable class="col-md-2 control-label" for="member.city">城市：</lable>
+			
+				<div class="col-md-5">
+					<select id="memeber.city" name="member.city" class="form-control">
+						<option value="">========请选择所在城市========</option>
+						<option value="1">北京</option>
+						<option value="2">上海</option>
+						<option value="3">广州</option>
+						<option value="4">深圳</option>
+						<option value="5">郑州</option>
+					</select>
+				</div>
+				
+				<div class="col-md-4" id="member.cityMsg">*</div>
+			</div>
+			
+			<div class="form-group" id="member.ageDiv">
+				<label class="col-md-2 control-label" for="member.age">年龄：</label>
+
+				<div class="col-md-5">
+					<input type="text" name="member.age" id="member.age"
+						class="form-control input-sm" placeholder="请输入年龄" />
+				</div>
+
+				<div class="col-md-4" id="member.ageMsg">*</div>
+			</div>
+			
+			<div class="form-group" id="member.birthdayDiv">
+				<label class="col-md-2 control-label" for="member.birthday">生日：</label>
+
+				<div class="col-md-5">
+					<input type="text" name="member.birthday" id="member.birthday"
+						class="form-control input-sm" placeholder="请输入生日" />
+				</div>
+
+				<div class="col-md-4" id="member.birthdayMsg">*</div>
+			</div>
+			
+			<div class="form-group" id="member.photoDiv">
+				<label class="col-md-2 control-label" for="member.photo">照片：</label>
+
+				<div class="col-md-5">
+					<input type="file" name="member.photo" id="member.photo"
+						class="form-control input-sm" placeholder="请选择照片" />
+				</div>
+
+				<div class="col-md-4" id="member.photoMsg">*</div>
+			</div>
+			
+			<div class="form-group" id="member.noteDiv">
+				<label class="col-md-2 control-label" for="member.note">简介：</label>
+
+				<div class="col-md-5">
+					<textarea name="member.note" id="member.note"
+						class="form-control input-sm" placeholder="请输入简介" ></textarea>
+				</div>
+
+				<div class="col-md-4" id="member.noteMsg">*</div>
+			</div>
+
+			<!-- 按钮 -->
+			<div class="form-group" id="member.midDiv">
+				<div class="col-md-5">
+					<input type="submit" value="提交" class="btn btn-sm btn-primary">
+					<input type="reset" value="重置" class="btn btn-sm btn-warning">
+				</div>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>
